@@ -14,7 +14,7 @@ public class NoiseMapGeneration : MonoBehaviour {
     /// <param name="offsetX"></param>
     /// <param name="offsetZ"></param>
     /// <returns></returns>
-    public float[,] GenerateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ, long seed){//, Wave[] waves) {
+    public float[,] GenerateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ, long seed, Wave[] waves) {
         if (scale <= 0) throw new UnityException("GenerateNoiseMap.cs: Scale must be greater than 0");
 
 		// create an empty noise map with the mapDepth and mapWidth coordinates
@@ -27,23 +27,19 @@ public class NoiseMapGeneration : MonoBehaviour {
 
                 //float sampleX = (xIndex + offsetX) / scale;
                 //float sampleZ = (zIndex + offsetZ) / scale;
-                float sampleX = (offsetX + xIndex) / (mapWidth) * scale;
-                float sampleZ = (offsetZ + zIndex) / (mapDepth) * scale;
-
-                //float noise = Mathf.PerlinNoise(sampleX, sampleZ);
-                //noise = randomValue(noise, .1f);
-               
-                float noise = (float) noisemaker.Evaluate(sampleX, sampleZ);
-                noiseMap[zIndex, xIndex] = noise;
-
-                //float normalization = 0f;
-                //foreach (Wave wave in waves) {
-                //	// generate noise value using PerlinNoise for a given Wave
-                //	noise += wave.amplitude * Mathf.PerlinNoise (sampleX * wave.frequency + wave.seed, sampleZ * wave.frequency + wave.seed);
-                //	normalization += wave.amplitude;
-                //}
-                //// normalize the noise value so that it is within 0 and 1
-                //noise /= normalization;
+                float sampleX = (offsetX + xIndex) / (mapWidth * scale);
+                float sampleZ = (offsetZ + zIndex) / (mapDepth * scale);
+                
+                //noiseMap[zIndex, xIndex] = noise;
+                float normalization = 0f, noise = 0f;
+                foreach (Wave wave in waves)
+                {
+                    // generate noise value using PerlinNoise for a given Wave
+                    noise += wave.amplitude * (float)noisemaker.Evaluate(sampleX, sampleZ);
+                    normalization += wave.amplitude;
+                }
+                // normalize the noise value so that it is within 0 and 1
+                noise /= normalization;
 
                 noiseMap [zIndex, xIndex] = noise;
 			}

@@ -21,7 +21,7 @@ public class TerrainType
 public class TileGeneration : MonoBehaviour {
 
 	[SerializeField]
-	NoiseMapGeneration noiseMapGeneration;
+	public NoiseMapGeneration noiseMapGeneration;
 
 	[SerializeField]
 	public MeshRenderer tileRenderer;
@@ -48,7 +48,7 @@ public class TileGeneration : MonoBehaviour {
     public Wave[] waves;
 
     [SerializeField]
-    public int seed;
+    public long seed;
 
 	void Start() {
 		GenerateTile ();
@@ -65,7 +65,7 @@ public class TileGeneration : MonoBehaviour {
 		float offsetZ = -this.gameObject.transform.position.z;
 
         // generate a heightMap using noise
-        float[,] heightMap = this.noiseMapGeneration.GenerateNoiseMap(tileDepth, tileWidth, this.levelScale, offsetX, offsetZ, 5);//, waves);
+        float[,] heightMap = this.noiseMapGeneration.GenerateNoiseMap(tileDepth, tileWidth, this.levelScale, offsetX, offsetZ, seed, waves);
 
 		// build a Texture2D from the height map
 		Texture2D tileTexture = BuildTexture (heightMap);

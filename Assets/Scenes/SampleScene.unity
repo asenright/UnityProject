@@ -373,9 +373,15 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   waves:
-  - seed: 1
+  - seed: 5613
     frequency: 1
     amplitude: 1
+  - seed: 9551
+    frequency: 0.5
+    amplitude: 2
+  - seed: 6712
+    frequency: 0.25
+    amplitude: 4
   seed: 2147483647
 --- !u!64 &1617647157
 MeshCollider:

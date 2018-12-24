@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets;
 using UnityEngine;
 
 public class NoiseMapGeneration : MonoBehaviour {
@@ -13,13 +14,14 @@ public class NoiseMapGeneration : MonoBehaviour {
     /// <param name="offsetX"></param>
     /// <param name="offsetZ"></param>
     /// <returns></returns>
-    public float[,] GenerateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ){//, Wave[] waves) {
+    public float[,] GenerateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ, long seed){//, Wave[] waves) {
         if (scale <= 0) throw new UnityException("GenerateNoiseMap.cs: Scale must be greater than 0");
 
 		// create an empty noise map with the mapDepth and mapWidth coordinates
 		float[,] noiseMap = new float[mapDepth, mapWidth];
+        var noisemaker = new OpenSimplexNoise(seed);
 
-		for (int zIndex = 0; zIndex < mapDepth; zIndex++) {
+        for (int zIndex = 0; zIndex < mapDepth; zIndex++) {
 			for (int xIndex = 0; xIndex < mapWidth; xIndex++) {
                 // calculate sample indices based on the coordinates, the scale and the offset
 
@@ -28,7 +30,10 @@ public class NoiseMapGeneration : MonoBehaviour {
                 float sampleX = (offsetX + xIndex) / (mapWidth) * scale;
                 float sampleZ = (offsetZ + zIndex) / (mapDepth) * scale;
 
-                float noise = Mathf.PerlinNoise(sampleX, sampleZ);
+                //float noise = Mathf.PerlinNoise(sampleX, sampleZ);
+                //noise = randomValue(noise, .1f);
+               
+                float noise = (float) noisemaker.Evaluate(sampleX, sampleZ);
                 noiseMap[zIndex, xIndex] = noise;
 
                 //float normalization = 0f;

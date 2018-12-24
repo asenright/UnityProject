@@ -65,7 +65,7 @@ public class TileGeneration : MonoBehaviour {
 		float offsetZ = -this.gameObject.transform.position.z;
 
         // generate a heightMap using noise
-        float[,] heightMap = this.noiseMapGeneration.GenerateNoiseMap(tileDepth, tileWidth, this.levelScale, offsetX, offsetZ);//, waves);
+        float[,] heightMap = this.noiseMapGeneration.GenerateNoiseMap(tileDepth, tileWidth, this.levelScale, offsetX, offsetZ, 5);//, waves);
 
 		// build a Texture2D from the height map
 		Texture2D tileTexture = BuildTexture (heightMap);

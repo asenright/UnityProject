@@ -312,48 +312,63 @@ MonoBehaviour:
   tileRenderer: {fileID: 1617647158}
   meshFilter: {fileID: 1617647159}
   meshCollider: {fileID: 1617647157}
-  levelScale: 1
+  levelScale: 3
   terrainTypes:
   - name: water
     height: 0.4
     color: {r: 0, g: 0, b: 1, a: 1}
+  - name: beach
+    height: 0.5
+    color: {r: 0.8703531, g: 0.9245283, b: 0.41429335, a: 1}
   - name: grass
     height: 0.7
-    color: {r: 0, g: 1, b: 0, a: 1}
+    color: {r: 0.08899963, g: 0.754717, b: 0.08899963, a: 1}
   - name: mountain
     height: 1
     color: {r: 0.6037736, g: 0.54776543, b: 0.498398, a: 1}
-  heightMultiplier: 2
+  - name: snow
+    height: 1.5
+    color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+  heightMultiplier: 3
   heightCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: -0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
+      value: 0
+      inSlope: -0.6159104
+      outSlope: -0.6159104
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.050700996
+      value: -0.031227272
+      inSlope: -0.011976028
+      outSlope: -0.011976028
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.40096566
-      value: -0.0047215875
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
+      time: 0.40007854
+      value: -0.00039455295
+      inSlope: 0.05255082
+      outSlope: 0.05255082
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.09284238
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0019138
-      value: 1.0023586
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
+      time: 1
+      value: 1
+      inSlope: 1.6675426
+      outSlope: 1.6675426
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -361,6 +376,7 @@ MonoBehaviour:
   - seed: 1
     frequency: 1
     amplitude: 1
+  seed: 2147483647
 --- !u!64 &1617647157
 MeshCollider:
   m_ObjectHideFlags: 0

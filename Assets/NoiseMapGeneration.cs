@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using Assets;
 using UnityEngine;
 
+
+/// <summary>
+/// NoiseMapGeneration. Largely taken from https://gamedevacademy.org/complete-guide-to-procedural-level-generation-in-unity-part-2/ 
+/// Changes: Use OpenSimplex instead of Perlin because it's cheaper.
+/// </summary>
 public class NoiseMapGeneration : MonoBehaviour {
 
     /// <summary>
@@ -14,7 +19,7 @@ public class NoiseMapGeneration : MonoBehaviour {
     /// <param name="offsetX"></param>
     /// <param name="offsetZ"></param>
     /// <returns></returns>
-    public float[,] GenerateNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ, long seed, Wave[] waves) {
+    public float[,] GenerateSimplexNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ, long seed, Wave[] waves) {
         if (scale <= 0) throw new UnityException("GenerateNoiseMap.cs: Scale must be greater than 0");
 
 		// create an empty noise map with the mapDepth and mapWidth coordinates
@@ -44,9 +49,29 @@ public class NoiseMapGeneration : MonoBehaviour {
                 noiseMap [zIndex, xIndex] = noise;
 			}
 		}
-
 		return noiseMap;
 	}
+
+    public float[,] GenerateUniformNoiseMap(int mapDepth, int mapWidth, float centerVertexZ, float maxDistanceZ, float offsetZ)
+    {
+        // create an empty noise map with the mapDepth and mapWidth coordinates
+        float[,] noiseMap = new float[mapDepth, mapWidth];
+
+        for (int zIndex = 0; zIndex < mapDepth; zIndex++)
+        {
+            // calculate the sampleZ by summing the index and the offset
+            float sampleZ = zIndex + offsetZ;
+            // calculate the noise proportional to the distance of the sample to the center of the level
+            float noise = Mathf.Abs(sampleZ - centerVertexZ) / maxDistanceZ;
+            // apply the noise for all points with this Z coordinate
+            for (int xIndex = 0; xIndex < mapWidth; xIndex++)
+            {
+                noiseMap[mapDepth - zIndex - 1, xIndex] = noise;
+            }
+        }
+
+        return noiseMap;
+    }
 }
 
 

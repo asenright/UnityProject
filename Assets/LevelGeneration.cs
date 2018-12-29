@@ -41,7 +41,7 @@ public class LevelGeneration : MonoBehaviour
 
                 // instantiate a new Tile
                 GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
-
+                tile.GetComponent<TileGeneration>().GenerateTile((zTileIndex + .5f) * tileDepth, tileDepth);
                 var tileGenComponent = tile.GetComponent<TileGeneration>();
                 tileGenComponent.seed = seed;
                 tileGenComponent.levelScale = scale;
@@ -50,4 +50,5 @@ public class LevelGeneration : MonoBehaviour
             }
         }
     }
+
 }

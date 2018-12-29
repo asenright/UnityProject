@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets;
 using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
@@ -50,5 +51,6 @@ public class LevelGeneration : MonoBehaviour
             }
         }
     }
+
 
 }

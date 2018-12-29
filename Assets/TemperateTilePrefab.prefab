@@ -111,28 +111,32 @@ MonoBehaviour:
   meshFilter: {fileID: 8087394917918216555}
   meshCollider: {fileID: 8087394917918216553}
   levelScale: 3
-  terrainTypes:
-  - name: deepwater
-    height: 0.2
-    color: {r: 0.042986836, g: 0.042986836, b: 0.3962264, a: 1}
+  heightTerrainTypes:
   - name: water
     height: 0.2
-    color: {r: 0, g: 0, b: 1, a: 1}
+    color: {r: 0, g: 0.16702747, b: 1, a: 1}
   - name: beach
     height: 0.3
-    color: {r: 0.8703531, g: 0.9245283, b: 0.41429335, a: 1}
-  - name: grass
+    color: {r: 0.99381757, g: 1, b: 0, a: 1}
+  - name: forest
     height: 0.4
-    color: {r: 0.08899963, g: 0.754717, b: 0.08899963, a: 1}
-  - name: alpine
-    height: 0.7
-    color: {r: 0.036356345, g: 0.4056604, b: 0.036356345, a: 1}
+    color: {r: 0.07453719, g: 0.6320754, b: 0.14794704, a: 1}
   - name: mountain
     height: 0.9
-    color: {r: 0.6037736, g: 0.54776543, b: 0.498398, a: 1}
-  - name: snow
-    height: 0.95
-    color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+    color: {r: 0.5283019, g: 0.51584196, b: 0.51584196, a: 1}
+  heatTerrainTypes:
+  - name: hottest
+    height: 0.25
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - name: warm
+    height: 0.5
+    color: {r: 1, g: 0.8284644, b: 0, a: 1}
+  - name: cool
+    height: 0.75
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - name: coldest
+    height: 1
+    color: {r: 0.7080812, g: 0.7442796, b: 0.9811321, a: 1}
   heightMultiplier: 3
   heightCurve:
     serializedVersion: 2
@@ -167,20 +171,43 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  waves:
-  - seed: 5613
-    frequency: 1
-    amplitude: 1
-  - seed: 9551
-    frequency: 0.5
-    amplitude: 2
-  - seed: 6712
-    frequency: 0.25
-    amplitude: 4
-  - seed: 6712
-    frequency: 0.06125
-    amplitude: 16
+  heatCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.0023498535
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.20074926
+      value: -0.00431253
+      inSlope: -0.015851924
+      outSlope: -0.015851924
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.0319228
+    - serializedVersion: 3
+      time: 1
+      value: 0.99765015
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  heightWaves: []
+  heatWaves: []
   seed: 2147483647
+  visualizationMode: 1
 --- !u!114 &8087394917918216559
 MonoBehaviour:
   m_ObjectHideFlags: 0

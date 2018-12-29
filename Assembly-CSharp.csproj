@@ -60,10 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\LevelData.cs" />
     <Compile Include="Assets\LevelGeneration.cs" />
     <Compile Include="Assets\NoiseMapGeneration.cs" />
     <Compile Include="Assets\OpenSimplex.cs" />
+    <Compile Include="Assets\RiverGeneration.cs" />
+    <Compile Include="Assets\TileCoordinate.cs" />
     <Compile Include="Assets\TileGeneration.cs" />
+    <Compile Include="Assets\TreeGeneration.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Andrew/Documents/UnityProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

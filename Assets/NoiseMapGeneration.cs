@@ -47,19 +47,6 @@ public class NoiseMapGeneration : MonoBehaviour {
 
 		return noiseMap;
 	}
-
-    /// <summary>
-    /// Returns a value between 0 and 1. Sample is the target number, slop is how far from it you can be.
-    /// i.e. given sample = .7 and slop = .1, will return a val from .6 to .8
-    /// </summary>
-    /// <param name="sample"></param>
-    /// <param name="slop"></param>
-    /// <returns></returns>
-    private float randomValue(float sample, float slop)
-    {
-        float randomVal = (((float)Random.Range(-1000, 1000)) / 1000) * slop;
-        return sample + randomVal;
-    }
 }
 
 

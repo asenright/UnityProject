@@ -112,20 +112,26 @@ MonoBehaviour:
   meshCollider: {fileID: 8087394917918216553}
   levelScale: 3
   terrainTypes:
+  - name: deepwater
+    height: 0.2
+    color: {r: 0.042986836, g: 0.042986836, b: 0.3962264, a: 1}
   - name: water
-    height: 0.4
+    height: 0.2
     color: {r: 0, g: 0, b: 1, a: 1}
   - name: beach
-    height: 0.5
+    height: 0.3
     color: {r: 0.8703531, g: 0.9245283, b: 0.41429335, a: 1}
   - name: grass
-    height: 0.7
+    height: 0.4
     color: {r: 0.08899963, g: 0.754717, b: 0.08899963, a: 1}
+  - name: alpine
+    height: 0.7
+    color: {r: 0.036356345, g: 0.4056604, b: 0.036356345, a: 1}
   - name: mountain
-    height: 1
+    height: 0.9
     color: {r: 0.6037736, g: 0.54776543, b: 0.498398, a: 1}
   - name: snow
-    height: 1.5
+    height: 0.95
     color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   heightMultiplier: 3
   heightCurve:
@@ -133,27 +139,27 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.0025024414
+      inSlope: -0.012512207
+      outSlope: -0.012512207
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.40159073
+      time: 0.2
       value: 0
-      inSlope: 1.0000001
-      outSlope: 1.0000001
+      inSlope: -0.019775731
+      outSlope: -0.019775731
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.06235242
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 1.671097
-      outSlope: 1.671097
+      value: 1.0025024
+      inSlope: 1.253128
+      outSlope: 1.253128
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -171,6 +177,9 @@ MonoBehaviour:
   - seed: 6712
     frequency: 0.25
     amplitude: 4
+  - seed: 6712
+    frequency: 0.125
+    amplitude: 8
   seed: 2147483647
 --- !u!114 &8087394917918216559
 MonoBehaviour:

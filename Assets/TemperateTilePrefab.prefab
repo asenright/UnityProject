@@ -178,8 +178,8 @@ MonoBehaviour:
     frequency: 0.25
     amplitude: 4
   - seed: 6712
-    frequency: 0.125
-    amplitude: 8
+    frequency: 0.06125
+    amplitude: 16
   seed: 2147483647
 --- !u!114 &8087394917918216559
 MonoBehaviour:
